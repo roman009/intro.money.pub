@@ -1,0 +1,45 @@
+import React from "react";
+import { NavLink } from "react-router-dom";
+
+export default function Header(props) {
+  return (
+    <header>
+      <HeaderNavItem exact to="/" name="Home" />
+      <HeaderNavItem to="/contact" name="Contact" />
+      <span>
+        <label> Connected: </label>
+        {props.state.isLoggedIn ? "yes" + " | " : "no"}{" "}
+        {props.state.isLoggedIn ? (
+          ""
+        ) : (
+          <button onClick={props.connect}>Connect</button>
+        )}
+        {props.state.isLoggedIn
+          ? " Balance: " + props.state.balance + " | "
+          : ""}
+      </span>
+      <span>
+        <label> Registered: </label>
+        {props.state.isRegistered ? "yes" : "no"}{" "}
+        {props.state.isRegistered ? (
+          ""
+        ) : (
+          <button onClick={props.register}>Register</button>
+        )}
+      </span>
+    </header>
+  );
+}
+
+function HeaderNavItem(props) {
+  return (
+    <NavLink
+      to={props.to}
+      className="nav-item"
+      exact={props.exact ? true : false}
+      activeClassName="active"
+    >
+      {props.name}
+    </NavLink>
+  );
+}

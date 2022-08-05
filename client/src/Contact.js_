@@ -1,0 +1,14 @@
+import React, { Component } from "react";
+import IntroMoney from "./contracts/IntroMoney.json";
+
+class Contact extends Component {
+  render() {
+    if (!this.props.state.web3) {
+      return <div>Loading...</div>;
+    }
+
+    return "contact";
+  }
+}
+
+export default Contact;

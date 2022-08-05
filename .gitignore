@@ -1,0 +1,12 @@
+node_modules
+build
+contracts/ConvertLib.__sol
+contracts/MetaCoin.__sol
+test/TestMetaCoin.s23ol
+test/metacoin.sdjs
+.DS_Store
+# .env
+# client/.env
+keys/
+.env.bak
+.env copy

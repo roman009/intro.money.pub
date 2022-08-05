@@ -1,0 +1,228 @@
+import React, { Component } from "react";
+import IntroMoney from "./contracts/IntroMoney.json";
+import getWeb3 from "./getWeb3";
+
+class Home extends Component {
+  state = {
+    web3: null,
+    contract: null,
+    accounts: [],
+    encryptedMessage: "",
+    conversation: null,
+    passwordDecrypt: "",
+    replyMessage: "",
+    conversationId: null,
+  };
+
+  componentDidMount = async () => {
+    try {
+      // Get network provider and web3 instance.
+      const web3 = await getWeb3();
+
+      // Get the contract instance.
+      const networkId = await web3.eth.net.getId();
+      const deployedNetwork = IntroMoney.networks[networkId];
+      const instance = new web3.eth.Contract(
+        IntroMoney.abi,
+        deployedNetwork && deployedNetwork.address
+      );
+      const accounts = await web3.eth.getAccounts();
+
+      // Set web3, accounts, and contract to the state, and then proceed with an
+      // example of interacting with the contract's methods.
+      this.setState({ web3: web3, contract: instance, accounts: accounts });
+
+      console.log(this.props);
+      let conversationId = this.props.match.params.id;
+      this.setState({
+        conversationId: conversationId,
+      });
+      console.log(conversationId);
+      await this.loadConversation();
+    } catch (error) {
+      // Catch any errors for any of the above operations.
+      alert(
+        `Failed to load web3, accounts, or contract. Check console for details.`
+      );
+      console.error(error);
+    }
+  };
+
+  loadConversation = async () => {
+    let { conversationId, accounts, web3, contract } = this.state;
+    let conversation = await contract.methods
+      .getConversation(web3.utils.numberToHex(conversationId))
+      .call({
+        from: accounts[0],
+      });
+    console.log(conversation);
+
+    this.setState({
+      conversation: conversation,
+    });
+  };
+
+  displayMessages = () => {
+    let ret = [];
+    let { accounts, web3, conversation } = this.state;
+    console.log(conversation.messages);
+    console.log(conversation.messages.length);
+    for (let i = 0; i < conversation.messages.length; i++) {
+      let msg = conversation.messages[i];
+      console.log(msg);
+      if (msg.owner == accounts[0]) {
+        ret.push(
+          <div key={"msg-div-" + i} style={{ textAlign: "right" }}>
+            <span>
+              <strong>You: </strong>
+            </span>
+            <br></br>
+            {web3.utils.toUtf8(msg.text)}
+            <br></br>
+          </div>
+        );
+      } else {
+        ret.push(
+          <div key={"msg-div-" + i} style={{ textAlign: "left" }}>
+            <span>
+              <strong>{msg.owner}: </strong>
+            </span>
+            <br></br>
+            {web3.utils.toUtf8(msg.text)}
+            <br></br>
+          </div>
+        );
+      }
+    }
+
+    return ret;
+  };
+
+  handlePasswordDecryptChange = async (event) => {
+    this.setState({ passwordDecrypt: event.target.value });
+  };
+  handleReplyChange = async (event) => {
+    this.setState({ replyMessage: event.target.value });
+  };
+
+  decryptConversation = async (event) => {
+    event.preventDefault();
+    let { accounts, conversation, passwordDecrypt, web3 } = this.state;
+
+    for (let i = 0; i < conversation.messages.length; i++) {
+      let msg = conversation.messages[i];
+      let decryptedMessage;
+      await this.props
+        .decryptMessage(
+          web3.utils.toUtf8(msg.text),
+          passwordDecrypt,
+          conversation.id
+        )
+        .then((res) => res.json())
+        .then((data) => {
+          decryptedMessage = web3.utils.toHex(data.decodedMessage);
+        })
+        .catch(console.log);
+      console.log(decryptedMessage);
+      if (decryptedMessage != null) {
+        conversation.messages[i].text = decryptedMessage;
+      }
+    }
+
+    await this.props.connect();
+    this.setState({ conversation: conversation });
+  };
+
+  replyToConversation = async (event) => {
+    event.preventDefault();
+    let {
+      accounts,
+      conversation,
+      web3,
+      replyMessage,
+      passwordDecrypt,
+    } = this.state;
+
+    if (passwordDecrypt == "") {
+      throw Error("password is empty");
+    }
+
+    await this.props.replyToConversation(
+      replyMessage,
+      passwordDecrypt,
+      conversation.id
+    );
+
+    await this.props.connect();
+    await this.loadConversation();
+    await this.decryptConversation(event);
+  };
+
+  render() {
+    if (!this.state.web3) {
+      return <div>Loading...</div>;
+    }
+    // const posts = "posts";
+    //
+    // return <div className="blog">{posts}</div>;
+    if (this.state.conversation != null) {
+      return (
+        <div id="Conversation">
+          <span>
+            <label>Owner: </label>
+            {this.state.conversation.owner == this.state.accounts[0]
+              ? "You"
+              : this.state.conversation.owner}
+          </span>
+          {" | "}
+          <span>
+            <label>Recipient: </label>
+            {this.state.conversation.recipient == this.state.accounts[0]
+              ? "You"
+              : this.state.conversation.recipient}
+          </span>
+          <br></br>
+          <br></br>
+          <div>
+            <label>Password: </label>
+            <input
+              type="text"
+              name="password-decrypt"
+              onChange={this.handlePasswordDecryptChange}
+            ></input>
+            <button onClick={this.decryptConversation}>
+              Decrypt Conversation
+            </button>
+          </div>
+          <br></br>
+          <div
+            style={{
+              width: "900px",
+              textAlign: "center",
+              padding: "auto",
+              margin: "auto",
+              overflowWrap: "break-word",
+            }}
+          >
+            {this.displayMessages()}
+          </div>
+          <br></br>
+          <br></br>
+          <div>
+            <label>Reply: </label>
+            <textarea
+              type="text"
+              name="conversation-reply"
+              onChange={this.handleReplyChange}
+            />
+            <button onClick={this.replyToConversation}>Send</button>
+          </div>
+        </div>
+      );
+    } else {
+      return "";
+    }
+  }
+}
+
+export default Home;

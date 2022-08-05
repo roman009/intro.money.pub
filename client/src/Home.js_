@@ -1,0 +1,219 @@
+import React, { Component } from "react";
+import IntroMoney from "./contracts/IntroMoney.json";
+import getWeb3 from "./getWeb3";
+import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+
+class Home extends Component {
+  state = {
+    balance: 0,
+    web3: null,
+    accounts: null,
+    contract: null,
+    isRegistered: false,
+    isLoggedIn: false,
+    username: "",
+    depositAmount: 0,
+
+    conversations: [],
+
+    conversationMessage: "",
+    conversationPassword: "",
+    conversationReadReward: 0,
+    conversationReplyReward: 0,
+  };
+
+  componentDidMount = async () => {
+    try {
+      // Get network provider and web3 instance.
+      const web3 = await getWeb3();
+
+      // Get the contract instance.
+      const networkId = await web3.eth.net.getId();
+      const deployedNetwork = IntroMoney.networks[networkId];
+      const instance = new web3.eth.Contract(
+        IntroMoney.abi,
+        deployedNetwork && deployedNetwork.address
+      );
+      const accounts = await web3.eth.getAccounts();
+
+      // Set web3, accounts, and contract to the state, and then proceed with an
+      // example of interacting with the contract's methods.
+      this.setState({ web3: web3, contract: instance, accounts: accounts });
+
+      let conversations = await this.state.contract.methods
+        .getConversations()
+        .call({ from: this.state.accounts[0] });
+      console.log(conversations);
+
+      // Update state with the result.
+      this.setState({
+        // balance: balance,
+        // isRegistered: isRegistered,
+        // accounts,
+        // isLoggedIn: isLoggedIn,
+        // username: username,
+        conversations: conversations,
+      });
+    } catch (error) {
+      // Catch any errors for any of the above operations.
+      alert(
+        `Failed to load web3, accounts, or contract. Check console for details.`
+      );
+      console.error(error);
+    }
+  };
+
+  handleConversationPasswordChange = async (event) => {
+    this.setState({ conversationPassword: event.target.value });
+  };
+  handleConversationMessageChange = async (event) => {
+    this.setState({ conversationMessage: event.target.value });
+  };
+  handleConversationReadRewardChange = async (event) => {
+    this.setState({ conversationReadReward: event.target.value });
+  };
+  handleConversationReplyRewardChange = async (event) => {
+    this.setState({ conversationReplyReward: event.target.value });
+  };
+
+  createConversation = async (event) => {
+    event.preventDefault();
+    let {
+      conversationMessage,
+      conversationPassword,
+      conversationReadReward,
+      conversationReplyReward,
+    } = this.state;
+    let res = await this.props.createConversation(
+      conversationMessage,
+      conversationPassword,
+      conversationReadReward,
+      conversationReplyReward
+    );
+    console.log(res);
+
+    let conversations = await this.state.contract.methods
+      .getConversations()
+      .call({ from: this.state.accounts[0] });
+    console.log(conversations);
+
+    // Update state with the result.
+    this.setState({
+      conversations: conversations,
+    });
+  };
+
+  handleDepositChange = async (event) => {
+    this.setState({ depositAmount: event.target.value });
+  };
+
+  deposit = async (event) => {
+    event.preventDefault();
+    let { web3, contract, depositAmount } = this.state;
+    const accounts = await web3.eth.getAccounts();
+    const wei = web3.utils.toWei(depositAmount);
+
+    await contract.methods.deposit().send({ from: accounts[0], value: wei });
+
+    await this.props.connect();
+  };
+
+  render() {
+    if (!this.props.state.web3) {
+      return <div>Loading...</div>;
+    }
+
+    let displayConversations = "";
+    if (this.state.conversations.length > 0) {
+      displayConversations = (
+        <Router>
+          <React.Fragment>
+            <h2>Conversations</h2>
+            <ul>
+              {this.state.conversations.map((conversation) => (
+                <li key={conversation.id}>
+                  <Link to={`/conversation/${conversation.id}`}>
+                    {conversation.id}
+
+                    {". "}
+                    {/* {this.state.web3.utils.hexToUtf8( */}
+                    {/* conversation.messages[0].text */}
+                    {/* )} */}
+                    {conversation.messages[0].text.substring(0, 50) + "..."}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </React.Fragment>
+        </Router>
+      );
+    }
+
+    return (
+      <div id="Home">
+        <div>
+          <form id="deposit">
+            <input
+              type="text"
+              name="amount"
+              value={this.state.amount}
+              onChange={this.handleDepositChange}
+            ></input>
+            <button onClick={this.deposit}>Deposit</button>
+          </form>
+        </div>
+        <br></br>
+        <div>
+          Conversations:
+          <ul>{displayConversations}</ul>
+        </div>
+        <div>
+          <form id="create-conversation">
+            <h2>create conversation</h2>
+            <label>
+              message:
+              <textarea
+                type="text"
+                name="conversation-message"
+                onChange={this.handleConversationMessageChange}
+              />
+            </label>
+            <br></br>
+            <label>
+              password:
+              <input
+                type="text"
+                name="conversation-password"
+                onChange={this.handleConversationPasswordChange}
+              ></input>
+            </label>
+            <br></br>
+            <label>
+              read reward:
+              <input
+                type="text"
+                name="conversation-read-reward"
+                onChange={this.handleConversationReadRewardChange}
+              ></input>
+            </label>
+            <br></br>
+            <label>
+              reply reward:
+              <input
+                type="text"
+                name="conversation-reply-reward"
+                onChange={this.handleConversationReplyRewardChange}
+              ></input>
+            </label>
+            <br></br>
+            <button onClick={this.createConversation}>
+              Create Conversation
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Home;

@@ -1,0 +1,51 @@
+import React from "react";
+import { Route, Switch } from "react-router";
+import Conversation from "./Conversation";
+import Home from "./Home";
+import Contact from "./Contact";
+
+export default function Body(props) {
+  return (
+    <Switch>
+      {/* <Route path="/" exact component={Home} /> */}
+      <Route
+        path="/"
+        exact
+        render={(p) => (
+          <Home
+            // {...props}
+            connect={props.connect}
+            state={props.state}
+            createConversation={props.createConversation}
+          />
+        )}
+      />
+      <Route
+        path="/conversation/:id"
+        render={(p) => (
+          <Conversation
+            {...p}
+            connect={props.connect}
+            state={props.state}
+            web3={props.web3}
+            contract={props.contract}
+            decryptMessage={props.decryptMessage}
+            replyToConversation={props.replyToConversation}
+          />
+        )}
+      />
+      <Route
+        path="contact"
+        render={(p) => (
+          <Contact
+            // {...props}
+            connect={props.connect}
+            state={props.state}
+          />
+        )}
+      />
+      {/* <Route path="/contact" component={Contact} /> */}
+      {/* <Route path="/post/:slug" component={Post} /> */}
+    </Switch>
+  );
+}

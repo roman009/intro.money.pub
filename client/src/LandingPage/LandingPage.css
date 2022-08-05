@@ -1,0 +1,464 @@
+@import url(//fonts.googleapis.com/earlyaccess/thabit.css);
+
+
+.landingPage {
+    height: 100vh;
+    background-color: #00838F;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobileLogo
+{        
+    /* position: absolute; */
+    /* margin-left: 36.09%; */
+
+    width: 100;
+    /* max-height: 4   0;
+    right: 36.39%; */
+    /* top: 36.57%; */
+    /* bottom: 36.57%; */
+}  
+
+
+.ellipseLanding {
+    position: relative;
+    left: 58px;
+    top: 46px;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-image: url('../../assets/logo.svg');
+    box-shadow: 0px 3px 5px black;
+    /* background-color: #005662; */
+}
+
+.headerBig {
+    display: flex;
+    padding-top: 2vh;
+    height: 30vh;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+    font-size: 72px;
+    font-weight: 700;
+    height: 30%;
+    max-height: 30%;
+    font-family: 'Thabit', monospace;
+    line-height: 63.47px;
+    padding-left: 58px;
+    justify-content: space-between;
+
+}
+
+.subHeading {
+    /* position: absolute; */
+    height: fit-content;
+    max-height: 100%;
+    width: fit-content;
+    max-width: 55%;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 62px;
+    font-family: 'Thabit', monospace;
+    color: #FFFFFF;
+    font-style: normal;
+    margin-top: 2%;
+}
+
+.learnMore {
+    display: flex;
+    font-weight: 500;
+    font-size: 18px;
+    font-family: 'Encode Sans', monospace;
+    color: #FFFFFF;
+    font-style: normal;
+    height: fit-content;
+    min-height: 10%;
+    margin-top: 1%;
+}
+.learnMore > a {
+    text-decoration: none;
+    text-underline: none;
+    color: white;
+}
+
+.learnMore > a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+
+.connectSection {
+    display: flex;
+    height: 18vh;
+    width: 100%;
+    align-items: center;
+    margin-top: 15vh;
+    max-height: 18vh;
+    overflow: hidden;
+}
+
+.connectButton {
+    justify-self: center;
+    align-self: center;
+    margin-top: 5%;
+    display: flex;
+    height: 10%;
+    cursor: pointer;
+    background: #4FB3BF;
+    border-radius: 80px;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+}
+
+.connectButtonText {
+    font-size: 40px;
+    font-family: 'Encode Sans', monospace;
+    color: white;
+}
+
+.Modal {
+    position: absolute;
+    top: 26%;
+    left: 36%;
+    background-color: #4FB3BF;
+    width: 434px;
+    Height: 361px;
+    border-radius: 15px;
+    outline-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.connectSingleButton {
+    background: #4FB3BF;
+    border-radius: 40px;
+    padding: 2.5%;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 40px;
+    width: 48%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.connectHeading {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 20px;
+}
+
+.walletHeading {
+    position: absolute;
+    /* width: 257px; */
+    height: 68px;
+    width: 100vw;
+    /* left: 455px; */
+    display: flex;
+    justify-content: center;
+    top: 509px;
+    font-family: 'Thabit', monospace;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+
+    color: #FFFFFF;
+}
+
+.walletHeadingModal {
+    font-weight: 700;
+    color: #000;
+    font-size: 14px;
+    font-family: 'Thabit', monospace;
+    margin-top: 2%;
+}
+
+
+.connectButtonModal {
+    font-size: 34px;
+    padding-left: 43px;
+    padding-right: 43px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    background: #005662;
+    border-radius: 40px;
+    font-family: 'Thabit', monospace;
+    font-weight: bold;
+    color: #FFFCFC;
+    cursor: pointer;
+}
+
+.connectButtonOld {
+    font-size: 34px;
+    padding-left: 43px;
+    padding-right: 43px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    background: #4FB3BF;
+    border-radius: 40px;
+    font-family: 'Thabit', monospace;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+
+
+
+@media only screen and (max-width: 750px) {
+
+    .landingPage {
+        height: 100vh;
+        background-color: #00838F;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+        
+    .ellipseLandingMobile {
+        position: relative;
+        left: 5%;
+        top: 0;
+        object-fit: contain;
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        background-image: url('../../assets/logo.svg');
+        background-size: 100px;
+        background-repeat:no-repeat;
+        background-position:center;
+        box-shadow: 0px 3px 5px black;
+    }
+
+.headerBigMobile {
+    display: flex;
+    margin-top: 5vh;
+    height: 100px;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+    font-size: 36px;
+    font-weight: 700;
+    height: 30%;
+    max-height: 30%;
+    font-family: 'Thabit', monospace;
+    line-height: 47px;
+    padding-left: 5%;
+    justify-content: space-between;
+
+}
+
+.subHeading {
+    /* position: absolute; */
+    height: fit-content;
+    max-height: 100%;
+    width: fit-content;
+    max-width: 90%;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    font-family: 'Thabit', monospace;
+    color: #FFFFFF;
+    font-style: normal;
+    margin-top: 2%;
+}
+
+.learnMore {
+    display:inline-block;
+    font-weight: 500;
+    font-size: 18px;
+    font-family: 'Encode Sans', monospace;
+    color: #FFFFFF;
+    align-self:center;
+    font-style: normal;
+    height: fit-content;
+    line-height: initial;
+    /* min-height: 10%; */
+    position:absolute;
+    bottom: 15%;
+    text-align: center;
+    /* margin-top: 1%; */
+}
+
+
+
+.learnMore > a::before {
+    content: "\a";
+    white-space:pre
+}
+
+.learnMore > a {
+    text-decoration: none;
+    right: -199;
+    text-align: center;
+    color: white;
+}
+
+.learnMore > a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+
+.connectSection {
+    display: flex;
+    height: 18vh;
+    width: 100%;
+    align-items: center;
+    margin-top: 15vh;
+    max-height: 18vh;
+    overflow: hidden;
+}
+
+.connectButton {
+    justify-self: center;
+    align-self: center;
+    margin-top: 5%;
+    display: flex;
+    height: 10%;
+    cursor: pointer;
+    background: #4FB3BF;
+    border-radius: 80px;
+    width: 80%;
+    max-width: 350px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+    position:absolute;
+    bottom: 5%;
+}
+
+.connectButtonText {
+    font-size: 22px;
+    font-family: 'Encode Sans', monospace;
+    color: white;
+}
+
+.Modal {
+    position: absolute;
+    top: 26%;
+    left: 36%;
+    background-color: #4FB3BF;
+    width: 434px;
+    Height: 361px;
+    border-radius: 15px;
+    outline-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.connectSingleButton {
+    background: #4FB3BF;
+    border-radius: 40px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 28px;
+    align-items: center;
+    width: 68%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.connectHeading {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    font-weight:600;
+    font-family: 'Encode Sans';
+    max-width: 80%;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 20px;
+}
+
+.walletHeading {
+    position: absolute;
+    /* width: 257px; */
+    height: 68px;
+    width: 100vw;
+    /* left: 455px; */
+    display: flex;
+    justify-content: center;
+    top: 509px;
+    font-family: 'Thabit', monospace;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+
+    color: #FFFFFF;
+}
+
+.walletHeadingModal {
+    font-weight: 700;
+    color: #000;
+    font-size: 14px;
+    font-family: 'Thabit', monospace;
+    margin-top: 2%;
+}
+
+
+.connectButtonModal {
+    font-size: 34px;
+    padding-left: 43px;
+    padding-right: 43px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    background: #005662;
+    border-radius: 40px;
+    font-family: 'Thabit', monospace;
+    font-weight: bold;
+    color: #FFFCFC;
+    cursor: pointer;
+}
+
+.connectButtonOld {
+    font-size: 34px;
+    padding-left: 43px;
+    padding-right: 43px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    background: #4FB3BF;
+    border-radius: 40px;
+    font-family: 'Thabit', monospace;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+    .mobileLogo
+    {
+        width: 30%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        height: 'auto';
+    }   
+}

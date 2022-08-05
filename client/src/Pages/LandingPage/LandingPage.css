@@ -1,0 +1,544 @@
+@import url(//fonts.googleapis.com/earlyaccess/thabit.css);
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;600;700&display=swap");
+
+.landingPage {
+  height: 100vh;
+  /* background-color: #00838f; */
+  background: linear-gradient(
+    87.02deg,
+    #005662 2.21%,
+    #00838f 49.38%,
+    #4fb3bf 97.53%
+  );
+
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mobileLogo {
+  /* position: absolute; */
+  /* margin-left: 36.09%; */
+  /* max-height: 4   0;
+    right: 36.39%; */
+  /* top: 36.57%; */
+  /* bottom: 36.57%; */
+  height: 100%;
+  width: 100%;
+  max-width: 120px;
+}
+
+.ellipseLanding {
+  position: relative;
+  left: 58px;
+  top: 46px;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 100%;
+  background-image: url("../../assets/logo.svg");
+  box-shadow: 0px 3px 5px black;
+  /* background-color: #005662; */
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.headerBig {
+  display: flex;
+  padding-top: 2vh;
+  height: 30vh;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  font-size: 4.5vw;
+  font-weight: 700;
+  /* height: 30%;
+  max-height: 30%; */
+  /* font-family: "Thabit", monospace; */
+  font-family: "Inter", sans-serif;
+  line-height: 63.47px;
+  padding-left: 58px;
+  justify-content: space-between;
+}
+
+.subHeading {
+  /* position: absolute; */
+  height: fit-content;
+  max-height: 100%;
+  width: fit-content;
+  max-width: 80%;
+  font-weight: 500;
+  font-size: 2.6vw;
+  line-height: 62px;
+  /* font-family: "Thabit", monospace; */
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  font-style: normal;
+  margin-top: 2%;
+}
+
+.learnMore {
+  display: flex;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: "Encode Sans", monospace;
+  color: #ffffff;
+  font-style: normal;
+  height: fit-content;
+  min-height: 10%;
+  margin-top: 1%;
+}
+.learnMore > a {
+  text-decoration: none;
+  text-underline: none;
+  color: white;
+}
+
+.learnMore > a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.connectSection {
+  display: flex;
+  height: 18vh;
+  width: 100%;
+  align-items: center;
+  margin-top: 15vh;
+  max-height: 18vh;
+  overflow: hidden;
+}
+
+.connectButton {
+  justify-self: center;
+  align-self: center;
+  margin-top: 5%;
+  margin-bottom: 50px;
+  display: flex;
+  padding: 20px 0px;
+  cursor: pointer;
+  /* background: #4fb3bf; */
+  background: linear-gradient(
+    270deg,
+    #66b6c0 0%,
+    #acd7db 0.01%,
+    #66b6c0 44.79%,
+    #00838f 100%
+  );
+
+  border-radius: 80px;
+  max-width: 400px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+}
+
+.connectButtonText {
+  font-size: 40px;
+  /* font-family: "Encode Sans", monospace; */
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+.Modal {
+  position: absolute;
+  top: 26%;
+  left: 36%;
+  background-color: #4fb3bf;
+  width: 434px;
+  height: 361px;
+  border-radius: 15px;
+  outline-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.connectSingleButton {
+  /* background: #4fb3bf; */
+  background: linear-gradient(
+    270deg,
+    #66b6c0 0%,
+    #acd7db 0.01%,
+    #66b6c0 44.79%,
+    #00838f 100%
+  );
+
+  border-radius: 40px;
+  padding: 2.5%;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 40px;
+  width: 48%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.connectHeading {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+.walletHeading {
+  position: absolute;
+  /* width: 257px; */
+  height: 68px;
+  width: 100vw;
+  /* left: 455px; */
+  display: flex;
+  justify-content: center;
+  top: 509px;
+  font-family: "Thabit", monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+
+  color: #ffffff;
+}
+
+.walletHeadingModal {
+  font-weight: 700;
+  color: #000;
+  font-size: 14px;
+  font-family: "Thabit", monospace;
+  margin-top: 2%;
+}
+
+.connectButtonModal {
+  font-size: 34px;
+  padding-left: 43px;
+  padding-right: 43px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  background: #005662;
+  border-radius: 40px;
+  font-family: "Thabit", monospace;
+  font-weight: bold;
+  color: #fffcfc;
+  cursor: pointer;
+}
+
+.connectButtonOld {
+  font-size: 34px;
+  padding-left: 43px;
+  padding-right: 43px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  background: #4fb3bf;
+  border-radius: 40px;
+  font-family: "Thabit", monospace;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.balanceInner {
+  display: flex;
+  max-width: 270px;
+  width: 100%;
+  margin: 20px auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.balanceSoleButtons {
+  display: flex;
+  width: 90%;
+  /* margin-bottom: 5%; */
+  height: 18%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background: transparent !important; */
+}
+
+.landingBalModal .balanceSoleButtons {
+  background: transparent !important;
+}
+
+.needHelp {
+  margin-bottom: 10px;
+}
+
+.needHelp a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.errorModal {
+  text-align: center;
+}
+
+.errorModal h2 {
+  color: #ffffff;
+  font-family: "Encode Sans", monospace;
+  font-size: 3rem;
+  margin: 0;
+}
+
+.errorModal h6 {
+  color: #ffffff;
+  font-family: "Encode Sans", monospace;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-weight: normal;
+}
+
+@media only screen and (max-width: 750px) {
+  .landingPage {
+    height: 100vh;
+    background-color: #00838f;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: initial;
+  }
+
+  .ellipseLandingMobile {
+    position: relative;
+    left: 5%;
+    top: 0;
+    object-fit: contain;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    /* background-image: url("../../assets/logo.svg"); */
+    background-image: url("../../assets/IcebreakWeb.svg");
+    background-size: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0px 3px 5px black;
+  }
+
+  .headerBigMobile {
+    display: flex;
+    margin-top: 5vh;
+    height: 100px;
+  }
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 700;
+    height: 30%;
+    max-height: 30%;
+    font-family: "Thabit", monospace;
+    line-height: 47px;
+    padding-left: 5%;
+    justify-content: space-between;
+  }
+
+  .subHeading {
+    /* position: absolute; */
+    height: fit-content;
+    max-height: 100%;
+    width: fit-content;
+    max-width: 90%;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    /* font-family: "Thabit", monospace; */
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-style: normal;
+    margin-top: 2%;
+  }
+
+  .learnMore {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 18px;
+    font-family: "Encode Sans", monospace;
+    color: #ffffff;
+    align-self: center;
+    font-style: normal;
+    height: fit-content;
+    line-height: initial;
+    /* min-height: 10%; */
+    position: absolute;
+    bottom: 18%;
+    text-align: center;
+    /* margin-top: 1%; */
+  }
+
+  .learnMore > a::before {
+    content: "\a";
+    white-space: pre;
+  }
+
+  .learnMore > a {
+    text-decoration: none;
+    right: -199;
+    text-align: center;
+    color: white;
+  }
+
+  .learnMore > a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .connectSection {
+    display: flex;
+    height: 18vh;
+    width: 100%;
+    align-items: center;
+    margin-top: 15vh;
+    max-height: 18vh;
+    overflow: hidden;
+  }
+
+  .connectButton {
+    justify-self: center;
+    align-self: center;
+    margin-top: 5%;
+    display: flex;
+    cursor: pointer;
+    background: #4fb3bf;
+    border-radius: 80px;
+    width: 80%;
+    max-width: 350px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 30px;
+  }
+
+  .connectButtonText {
+    font-size: 22px;
+    font-family: "Encode Sans", monospace;
+    color: white;
+  }
+
+  .Modal {
+    position: absolute;
+    top: 26%;
+    left: 36%;
+    background-color: #4fb3bf;
+    width: 434px;
+    height: 361px;
+    border-radius: 15px;
+    outline-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .connectSingleButton {
+    /* background: #4fb3bf; */
+    background: linear-gradient(
+      270deg,
+      #66b6c0 0%,
+      #acd7db 0.01%,
+      #66b6c0 44.79%,
+      #00838f 100%
+    );
+
+    border-radius: 40px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 28px;
+    align-items: center;
+    width: 68%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .connectHeading {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Encode Sans";
+    max-width: 80%;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 20px;
+  }
+
+  .walletHeading {
+    position: absolute;
+    /* width: 257px; */
+    height: 68px;
+    width: 100vw;
+    /* left: 455px; */
+    display: flex;
+    justify-content: center;
+    top: 509px;
+    font-family: "Thabit", monospace;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+
+    color: #ffffff;
+  }
+
+  .walletHeadingModal {
+    font-weight: 700;
+    color: #000;
+    font-size: 14px;
+    font-family: "Thabit", monospace;
+    margin-top: 2%;
+  }
+
+  .connectButtonModal {
+    font-size: 34px;
+    padding-left: 43px;
+    padding-right: 43px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    background: #005662;
+    border-radius: 40px;
+    font-family: "Thabit", monospace;
+    font-weight: bold;
+    color: #fffcfc;
+    cursor: pointer;
+  }
+
+  .connectButtonOld {
+    font-size: 34px;
+    padding-left: 43px;
+    padding-right: 43px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    background: #4fb3bf;
+    border-radius: 40px;
+    font-family: "Thabit", monospace;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .mobileLogo {
+    width: 30%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: "auto";
+  }
+  .balanceInner {
+    justify-content: space-evenly;
+  }
+}

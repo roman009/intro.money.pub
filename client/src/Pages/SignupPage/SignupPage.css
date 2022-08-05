@@ -1,0 +1,303 @@
+@import url(//fonts.googleapis.com/earlyaccess/thabit.css);
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+.signupPage {
+  height: 100vh;
+  /* background-color: #00838F; */
+  background: linear-gradient(
+      259.29deg,
+      #66b6c0 6.83%,
+      #00838f 41.43%,
+      #005662 79.04%
+    ),
+    linear-gradient(0deg, #ffffff, #ffffff);
+}
+
+.ellipse {
+  position: relative;
+  left: 58px;
+  top: 46px;
+  width: 132px;
+  height: 132px;
+  border-radius: 100px;
+  background-image: url("../../assets/logo.svg");
+  /* background-color: #005662; */
+}
+
+.contentSignup {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signUp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 50vh;
+  overflow: hidden;
+  /* font-family: "Encode Sans", monospace; */
+  font-family: "Inter", sans-serif;
+}
+
+.signUpHeading {
+  width: 721px;
+  height: 70px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 47px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.contentSignup__input > input {
+  outline-width: 0;
+  border: none;
+  padding: 5px 20px;
+  padding-bottom: 3px;
+  margin: 0 10px;
+  border-radius: 999px;
+  background-color: #005662;
+  width: 300px;
+  height: 52px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 45px;
+  color: #ffffff;
+}
+
+.contentSignup__input > input::-webkit-input-placeholder {
+  /* Edge */
+  font-style: normal;
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 45px;
+  color: lightgray;
+}
+
+.contentSignup__input > input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-style: normal;
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 45px;
+  color: lightgray;
+}
+
+.contentSignup__input > input::placeholder {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 45px;
+  color: rgba(220, 220, 220, 0.6);
+}
+
+.connectModalSignup {
+  position: absolute;
+  top: 543px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.contentSignup__button {
+  font-size: 34px;
+  padding-left: 43px;
+  padding-right: 43px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  background: #4fb3bf;
+  border-radius: 40px;
+  font-family: "Thabit", monospace;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000000;
+  line-height: 45px;
+  text-align: center;
+  margin-top: 108px;
+}
+
+.ModalSignup {
+  position: absolute;
+  top: 26%;
+  left: 31%;
+  /* background-color: #4fb3bf; */
+  background: linear-gradient(
+    89.96deg,
+    #015662 0.04%,
+    #00838f 51.56%,
+    #569ea5 99.96%
+  );
+
+  width: 598px;
+  height: 361px;
+  border-radius: 15px;
+  outline-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.headingModalSignup {
+  font-weight: 700;
+  color: #fff;
+  font-size: 36px;
+  font-family: "inter", monospace;
+  line-height: 48px;
+  padding-left: 10px;
+}
+
+.walletHeadingModalSignup {
+  font-weight: 700;
+  color: #000;
+  font-size: 14px;
+  font-family: "Thabit", monospace;
+  margin-top: 2%;
+}
+
+.connectButtonModalSignup {
+  font-size: 22px;
+  padding-left: 43px;
+  padding-right: 43px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  /* background: #005662; */
+  background: linear-gradient(
+    270deg,
+    #66b6c0 0%,
+    #acd7db 0.01%,
+    #66b6c0 44.79%,
+    #00838f 100%
+  );
+
+  border-radius: 40px;
+  font-family: "inter", monospace;
+  font-weight: bold;
+  color: #fffcfc;
+  cursor: pointer;
+}
+
+.startModalSignup {
+  display: flex;
+  margin-bottom: 63px;
+}
+
+@media screen and (max-width: 750px) {
+  .information {
+    width: 28px;
+    margin-right: 5px;
+    height: "auto";
+  }
+  .signupPage {
+    height: 100vh;
+    background-color: #00838f;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ellipseLanding {
+    position: relative;
+    left: 5%;
+    object-fit: contain;
+    top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-image: url("../../assets/logo.svg");
+    background-size: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0px 3px 5px black;
+  }
+
+  .signUp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: "Encode Sans", monospace;
+  }
+
+  .contentSignup {
+    color: #ffffff;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .signUpHeading {
+    width: 80%;
+    height: 70px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .startModalSignup {
+    align-content: center;
+    margin-bottom: 13px;
+  }
+
+  .headingModalSignup {
+    font-weight: 700;
+    color: #fff;
+    font-size: 20px;
+    font-family: "inter", monospace;
+    line-height: 48px;
+  }
+
+  .ModalSignup {
+    position: absolute;
+    top: 26%;
+    left: 10%;
+    /* background-color: #4fb3bf; */
+    background: linear-gradient(
+      89.96deg,
+      #015662 0.04%,
+      #00838f 51.56%,
+      #569ea5 99.96%
+    );
+
+    width: 80%;
+    height: 50%;
+    border-radius: 15px;
+    outline-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contentSignup__input > input {
+    outline-width: 0;
+    border: none;
+    padding: 5px 20px;
+    padding-bottom: 3px;
+    margin-left: 10%;
+    border-radius: 999px;
+    background-color: #005662;
+    align-self: center;
+    width: 67.5%;
+    height: 52px;
+    text-align: center;
+    font-family: "Thabit", monospace;
+    font-weight: bold;
+    font-size: 34px;
+    line-height: 45px;
+    color: #ffffff;
+  }
+}
